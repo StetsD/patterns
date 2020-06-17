@@ -61,9 +61,10 @@ func merge(ch ...<-chan int) <- chan int {
 
 func main() {
 	in := gen(1,2,3,4,5,6)
+	in2 := gen(10,20,30)
 
 	ch1 := transmitter(in)
-	ch2 := transmitter(in)
+	ch2 := transmitter(in2)
 
 	for n := range merge(ch1, ch2) {
 		fmt.Println(n)
